@@ -38,8 +38,6 @@ def get_winner(User,Computer):
         
         else:
             print("Invalid input")
-    elif User ==  Computer:
-        print("It is a tie")
     else:
         print("Invalid input")
 
@@ -47,6 +45,7 @@ def let_play():
 
     get_computer_choice()
     get_user_choice()
+    print(f'Computer = {Computer}')
     get_winner(User,Computer)
     pass
 

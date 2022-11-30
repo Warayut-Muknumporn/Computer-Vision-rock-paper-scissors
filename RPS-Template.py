@@ -1,6 +1,7 @@
 import cv2
 from keras.models import load_model
 import numpy as np
+labels = open('labels.txt', 'r').readlines()
 model = load_model('keras_model.h5')
 cap = cv2.VideoCapture(0)
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
@@ -12,9 +13,14 @@ while True:
     normalized_image = (image_np.astype(np.float32) / 127.0) - 1 # Normalize the image
     data[0] = normalized_image
     prediction = model.predict(data)
+    User = labels[np.argmax(prediction)]
+
+
     cv2.imshow('frame', frame)
     # Press q to close the window
-    print(prediction)
+    #print(prediction)
+    print(labels[np.argmax(prediction)])
+    #print("sis")
     if cv2.waitKey(1) & 0xFF == ord('q'):
         break
             
