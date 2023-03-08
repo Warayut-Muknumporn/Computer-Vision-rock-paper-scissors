@@ -28,12 +28,21 @@ def countdown():
         timer = '{:02d}:{:02d}'.format(mins, secs)
         print(timer, end="\r")
         max_time -= 1
-    
-def waitForThis():
-    global End
-    print("Game End")
-    End =10
-    return End
+
+def countdown1():
+    countdown_time = 5
+    start_time = time.monotonic()
+    while countdown_time:
+        current_time = time.monotonic()
+        elapsed_time = current_time - start_time
+        mins, secs = divmod(countdown_time, 60)
+        timer = '{:02d}:{:02d}'.format(mins, secs)
+        if elapsed_time >= 1:
+            print(timer)
+            countdown_time -= 1
+            start_time = time.monotonic()
+
+    print('Time is up!')    
 
 def get_winner(User,Computer):
     global point_Com,point_User
@@ -94,30 +103,72 @@ while True:
     #predict User
     User = labels[np.argmax(prediction)]
     User = User.strip()
+
     #Duel
-    if previous_move != User:
-        if User != "nothing":
+    if round == 0:
+        if User == "nothing":
+            Computer = "nothing"
+            winner = "Waiting..."
+
+        elif User != "nothing":
             Computer = random.choices(['rock','paper','scissors'])
             Computer = Computer[0]
             winner = get_winner(User,Computer)
             round = round+1
             convert_round = str(round)
-        if round >= 3:
-            if point_User > point_Com:
-                winner = "You Win"
-            elif point_User < point_Com:
-                winner = "You lost"
-            convert_round = "Game END"
-            timer = threading.Timer(10.0, waitForThis)
-            timer.start()
-            if End == 10:
-                break
+            countdown1()
 
-        else:
+    elif round == 1:
+        if User == "nothing":
             Computer = "nothing"
             winner = "Waiting..."
 
-    previous_move = User
+        elif User != "nothing":
+            Computer = random.choices(['rock','paper','scissors'])
+            Computer = Computer[0]
+            winner = get_winner(User,Computer)
+            round = round+1
+            convert_round = str(round)
+            countdown1()
+
+    elif round == 2:
+        if User == "nothing":
+            Computer = "nothing"
+            winner = "Waiting..."
+
+        elif User != "nothing":
+            Computer = random.choices(['rock','paper','scissors'])
+            Computer = Computer[0]
+            winner = get_winner(User,Computer)
+            round = round+1
+            convert_round = str(round)
+            countdown1()
+
+    elif round >= 3:
+        if point_Com == point_User:
+            if User == "nothing":
+                Computer = "nothing"
+                winner = "Waiting..."
+
+            elif User != "nothing":
+                Computer = random.choices(['rock','paper','scissors'])
+                Computer = Computer[0]
+                winner = get_winner(User,Computer)
+                round = round+1
+                convert_round = str(round)
+                countdown1()
+
+        else:    
+            print("Game End")
+            print("Point Computer "+ str(point_Com))
+            print("Point User "+ str(point_User))
+            if point_Com < point_User:
+                print("You win!!!")
+            else:
+                print("You lost T-T")
+                countdown1()
+            break
+
 
     #display the information
     font = cv2.FONT_HERSHEY_SIMPLEX
@@ -130,6 +181,8 @@ while True:
     cv2.putText(frame, "Round: " + convert_round,
                 (200, 350), font, 1, (0, 0, 255), 4, cv2.LINE_AA)
 
+
+
     if Computer != "nothing":
         icon = cv2.imread(
            "images/{}.jpg".format(Computer))
@@ -138,19 +191,15 @@ while True:
 
     cv2.imshow('Rock Paper Scissors', frame)
     # Press q to close the window
-
-
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+    
+    print(round)
     print(User)
     print(Computer)
     print(winner)
     print(point_Com)
     print(point_User)
-
-    
-
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-
 
 
 # After the loop release the cap object
