@@ -2,7 +2,15 @@
 A simple python script that allows the user to play rock paper scissors with the computer using user's camera as input for user decision.This is educational project. Here we utilise trained a computer vision model using Teachable-Machine. The model detects whether the user shows Rock, Paper, or Scissors to the camera, so the user can leverage that output to play an RPS game with the computer. We access model through TenserFlow API and handle web-camera using OpenCV.
 
 # Project Description
-You are stranded on an island with no friends. Assuming you had friends back home, you start to feel a bit lonely. You seem to have all your essential needs covered except now you are bored. You have a laptop though, with solar-panels to power up the laptop. Since you are a newbie to python programming, you decide to develop a very simple game: Rock, Paper, Scissors. 
+You are stranded on an island with no friends. Assuming you had friends back home, you start to feel a bit lonely. You seem to have all your essential needs covered except now you are bored. You have a laptop though, with solar-panels to power up the laptop. Since you are a newbie to python programming, you decide to develop a very simple game: Rock, Paper, Scissors.
+
+the discussed project is the Computer Vision Rock-Paper-Scissors (RPS) project, in which the user trained a computer vision model using Teachable-Machine. The model detects whether the user shows Rock, Paper, or Scissors to the camera, so the user can leverage that output to play an RPS game with the computer.
+
+-  Trained a computer vision model that detected gestures in real-time.
+-  Created a Python script to apply the programming logic using the Tensorflow API and OpenCV
+
+
+
 
 skills used: python
 
