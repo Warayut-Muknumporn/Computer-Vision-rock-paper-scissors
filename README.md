@@ -20,5 +20,4 @@ A repository containing the guide for users to write their documentation.
   
 ![2](https://github.com/Warayut-Muknumporn/Computer-Vision-rock-paper-scissors/assets/116235617/0c9baa4e-c7ed-4e62-9c3d-093171a7ec43)
 
-![1](https://github.com/Warayut-Muknumporn/Computer-Vision-rock-paper-scissors/assets/116235617/09994de8-3391-4fc0-9ae7-e0605b8a8679)
 
