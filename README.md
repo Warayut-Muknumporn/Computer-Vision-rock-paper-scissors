@@ -9,18 +9,15 @@ the discussed project is the Computer Vision Rock-Paper-Scissors (RPS) project, 
 -  Trained a computer vision model that detected gestures in real-time.
 -  Created a Python script to apply the programming logic using the Tensorflow API and OpenCV
 
-
-
-
 skills used: python
-
+\
 A repository containing the guide for users to write their documentation.
 
 - For users: Follow the guide in [ExampleDocumentation.md](ExampleDocumentation.md) to document your experience.
 - Create Model from https://teachablemachine.withgoogle.com/
 - Manual_rps.py is a manual game of Rock Paper Scissors 
 - Camera_rps.pt is the Computer Vision game of Rock Paper Scissors in Best of 3 round
-- 
+  
 ![2](https://github.com/Warayut-Muknumporn/Computer-Vision-rock-paper-scissors/assets/116235617/0c9baa4e-c7ed-4e62-9c3d-093171a7ec43)
 
 ![1](https://github.com/Warayut-Muknumporn/Computer-Vision-rock-paper-scissors/assets/116235617/09994de8-3391-4fc0-9ae7-e0605b8a8679)
